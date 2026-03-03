@@ -1,4 +1,4 @@
-﻿export default [
+export default [
 	{
 		path: '/user',
 		layout: false,
@@ -42,6 +42,30 @@
 		icon: 'OrderedListOutlined',
 		component: './TodoList',
 	},
+	{
+		name: 'BT01',
+		path: '/bt01',
+		icon: 'ShopOutlined',
+		routes: [
+			{
+				name: 'QuanLySanPham',
+				path: 'quan-ly-san-pham',
+				component: './BT01/QuanLySanPham',
+			},
+		],
+	},
+	{
+		name: 'BT02',
+		path: '/bt02',
+		icon: 'ProfileOutlined',
+		routes: [
+			{
+				name: 'QuanLyCongViec',
+				path: 'quan-ly-cong-viec',
+				component: './BT02/QuanLyCongViec',
+			},
+		],
+	},
 
 	// DANH MUC HE THONG
 	// {
@@ -57,6 +81,23 @@
 	// 	],
 	// },
 
+		{
+		name: 'BaiTap',
+		path: '/bai-tap',
+		icon: 'BookOutlined',
+		routes: [
+			{
+				name: 'Bai1',
+				path: 'doan-so',
+				component: './BaiTap/DoanSo',
+			},
+			{
+				name: 'Bai2',
+				path: 'quan-ly-hoc-tap',
+				component: './BaiTap/Bai2',
+			},
+		],
+	},
 	{
 		path: '/notification',
 		routes: [
@@ -96,3 +137,4 @@
 		component: './exception/404',
 	},
 ];
+
