@@ -1,4 +1,4 @@
-export default [
+﻿export default [
 	{
 		path: '/user',
 		layout: false,
@@ -99,6 +99,23 @@ export default [
 		],
 	},
 	{
+		name: 'TH2',
+		path: '/th02',
+		icon: 'BookOutlined',
+		routes: [
+			{
+				name: 'OanTuTi',
+				path: 'oan-tu-ti',
+				component: './TH02/OanTuTi',
+			},
+			{
+				name: 'QuanLyCauHoi',
+				path: 'quan-ly-cau-hoi',
+				component: './TH02/QuanLyCauHoi',
+			},
+		],
+	},
+	{
 		path: '/notification',
 		routes: [
 			{
@@ -137,4 +154,3 @@ export default [
 		component: './exception/404',
 	},
 ];
-
