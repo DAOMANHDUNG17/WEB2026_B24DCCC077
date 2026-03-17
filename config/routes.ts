@@ -99,7 +99,7 @@
 		],
 	},
 	{
-		name: 'TH2',
+		name: 'TH02',
 		path: '/th02',
 		icon: 'BookOutlined',
 		routes: [
@@ -115,6 +115,33 @@
 			},
 		],
 	},
+	{
+    path: '/th03',
+    name: 'TH03',
+    icon: 'crown', 
+    routes: [
+      {
+        path: '/th03/nhan-vien',
+        name: 'Quản lý Nhân viên',
+        component: './TH03/QuanLyNhanVien',
+      },
+	  {
+        path: '/th03/lich-hen',
+        name: 'Quản lý Lịch hẹn', 
+        component: './TH03/QuanLyLichHen',
+      },
+	  {
+        path: '/th03/danh-gia',
+        name: 'Đánh giá Dịch vụ', 
+        component: './TH03/QuanLyDanhGia',
+      },
+	  {
+        path: '/th03/thong-ke',
+        name: 'Báo cáo & Thống kê', 
+        component: './TH03/ThongKeBaoCao',
+      },
+    ],
+  },
 	{
 		path: '/notification',
 		routes: [
