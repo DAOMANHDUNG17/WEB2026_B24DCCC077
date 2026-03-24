@@ -11,28 +11,23 @@ export interface LichHen {
   ngayHen: string;
   trangThai: string;
 }
-
-// Giả lập giá tiền chung cho mỗi ca dịch vụ là 200,000 VNĐ để tính doanh thu
 const GIA_MOI_CA = 200000;
 
 const ThongKeBaoCao: React.FC = () => {
   const [danhSachLichHen, setDanhSachLichHen] = useState<LichHen[]>([]);
 
   useEffect(() => {
-    // Lấy dữ liệu từ các phần trước đã lưu
     const savedLichHen = localStorage.getItem('th03_lichHen');
     if (savedLichHen) {
       setDanhSachLichHen(JSON.parse(savedLichHen));
     }
   }, []);
-
-  // ================= 1. TÍNH TOÁN SỐ LIỆU TỔNG QUAN =================
   const tongSoLich = danhSachLichHen.length;
   const lichHoanThanh = danhSachLichHen.filter(lh => lh.trangThai === 'Hoàn thành').length;
   const lichHuy = danhSachLichHen.filter(lh => lh.trangThai === 'Hủy').length;
   const tongDoanhThu = lichHoanThanh * GIA_MOI_CA;
 
-  // ================= 2. THỐNG KÊ THEO NGÀY =================
+  
   const thongKeTheoNgayMap = danhSachLichHen.reduce((acc: any, curr) => {
     if (!acc[curr.ngayHen]) {
       acc[curr.ngayHen] = { ngay: curr.ngayHen, tong: 0, hoanThanh: 0, huy: 0 };
@@ -44,7 +39,7 @@ const ThongKeBaoCao: React.FC = () => {
   }, {});
   const duLieuTheoNgay = Object.values(thongKeTheoNgayMap);
 
-  // ================= 3. THỐNG KÊ DOANH THU THEO NHÂN VIÊN =================
+  
   const thongKeNhanVienMap = danhSachLichHen.reduce((acc: any, curr) => {
     if (curr.trangThai !== 'Hoàn thành') return acc; // Chỉ tính tiền ca đã xong
     if (!acc[curr.nhanVien]) {
@@ -56,7 +51,7 @@ const ThongKeBaoCao: React.FC = () => {
   }, {});
   const duLieuNhanVien = Object.values(thongKeNhanVienMap).sort((a: any, b: any) => b.doanhThu - a.doanhThu); // Sắp xếp giảm dần
 
-  // ================= 4. THỐNG KÊ DOANH THU THEO DỊCH VỤ =================
+  
   const thongKeDichVuMap = danhSachLichHen.reduce((acc: any, curr) => {
     if (curr.trangThai !== 'Hoàn thành') return acc;
     if (!acc[curr.dichVu]) {
@@ -69,7 +64,7 @@ const ThongKeBaoCao: React.FC = () => {
   const duLieuDichVu = Object.values(thongKeDichVuMap).sort((a: any, b: any) => b.doanhThu - a.doanhThu);
 
 
-  // --- CẤU HÌNH CỘT CHO CÁC BẢNG ---
+  
   const formatTien = (tien: number) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(tien);
 
   const cotTheoNgay: ColumnsType<any> = [

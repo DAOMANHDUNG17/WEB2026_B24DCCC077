@@ -142,6 +142,38 @@
       },
     ],
   },
+  {
+    path: '/th04',
+    name: 'TH04 - Quản lý Văn bằng',
+    icon: 'SafetyCertificateOutlined',
+    routes: [
+      {
+        path: '/th04/so-van-bang',
+        name: '1. Sổ văn bằng',
+        component: './TH04/SoVanBang',
+      },
+      {
+        path: '/th04/quyet-dinh',
+        name: '2. Quyết định tốt nghiệp',
+        component: './TH04/QuyetDinh',
+      },
+      {
+        path: '/th04/cau-hinh',
+        name: '3. Cấu hình biểu mẫu',
+        component: './TH04/CauHinh',
+      },
+      {
+        path: '/th04/van-bang',
+        name: '4. Thông tin văn bằng',
+        component: './TH04/VanBang',
+      },
+      {
+        path: '/th04/tra-cuu',
+        name: '5. Tra cứu văn bằng',
+        component: './TH04/TraCuu',
+      },
+    ],
+  },
 	{
 		path: '/notification',
 		routes: [

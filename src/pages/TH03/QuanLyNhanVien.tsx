@@ -14,7 +14,7 @@ export interface NhanVien {
 
 const duLieuMau: NhanVien[] = [
   { id: '1', tenNhanVien: 'Đào Mạnh Dũng', chuyenMon: 'Toán Cao Cấp, Hóa Đại Cương', gioiHanKhach: 3, lichLamViec: '18h-22h (Thứ 2 - Thứ 6)', danhGia: 4.8 },
-  { id: '2', tenNhanVien: 'Trần Thị B', chuyenMon: 'Lập trình OOP, Giải thuật', gioiHanKhach: 4, lichLamViec: '8h-17h (Thứ 7 - CN)', danhGia: 5.0 },
+  { id: '2', tenNhanVien: 'Đoàn Khánh Linh', chuyenMon: 'Lập trình OOP, Giải thuật', gioiHanKhach: 4, lichLamViec: '8h-17h (Thứ 7 - CN)', danhGia: 5.0 },
 ];
 
 const QuanLyNhanVien: React.FC = () => {
