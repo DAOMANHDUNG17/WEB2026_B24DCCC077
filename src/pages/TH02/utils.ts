@@ -8,3 +8,4 @@ export const tronNgauNhien = <T,>(danhSach: T[]) => {
 	}
 	return ketQua;
 };
+
