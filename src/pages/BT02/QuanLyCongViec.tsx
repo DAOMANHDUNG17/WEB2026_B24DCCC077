@@ -108,8 +108,7 @@ const QuanLyCongViec = () => {
 						Đổi trạng thái
 					</Button>
 					<Popconfirm
-						title='Xóa công việc'
-						description={`Bạn có chắc muốn xóa "${banGhi.tenCongViec}"?`}
+						title={`Bạn có chắc muốn xóa "${banGhi.tenCongViec}"?`}
 						okText='Xóa'
 						cancelText='Hủy'
 						onConfirm={() => {

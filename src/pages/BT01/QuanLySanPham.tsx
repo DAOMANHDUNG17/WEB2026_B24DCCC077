@@ -68,8 +68,7 @@ const QuanLySanPham = () => {
 			align: 'center' as const,
 			render: (banGhi: SanPham) => (
 				<Popconfirm
-					title='Xóa sản phẩm'
-					description={`Bạn có chắc muốn xóa "${banGhi.ten}"?`}
+					title={`Bạn có chắc muốn xóa "${banGhi.ten}"?`}
 					okText='Xóa'
 					cancelText='Hủy'
 					onConfirm={() => {

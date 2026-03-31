@@ -37,7 +37,7 @@ export default () => {
 			const res = await putSetting(data, ip);
 			const temp = Object.assign(settings, { [data.key]: data.value });
 			setSettings(temp);
-			message.success('Cập nhật thành công');
+			message.success('Cáº­p nháº­t thĂ nh cĂ´ng');
 
 			return res.data?.data;
 		} catch (error) {
@@ -65,7 +65,10 @@ export default () => {
 		}
 	};
 
-	const updateSettingBaseModel = async (payload: { key: ESettingKey; value: any; noNotif?: boolean }, ip?: string) => {
+	const updateSettingBaseModel = async (
+		payload: { key: ESettingKey; value: any; noNotif?: boolean },
+		ip?: string,
+	): Promise<void> => {
 		if (formSubmiting) return Promise.reject('Form submiting');
 		setFormSubmiting(true);
 		try {
@@ -79,9 +82,9 @@ export default () => {
 				set[payload.key] = { ...set[payload.key], ...payload.value };
 				return set;
 			});
-			if (!payload?.noNotif) message.success('Lưu thành công');
+			if (!payload?.noNotif) message.success('LÆ°u thĂ nh cĂ´ng');
 		} catch (err) {
-			return Promise.reject(err);
+			throw err;
 		} finally {
 			setFormSubmiting(false);
 		}
