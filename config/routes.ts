@@ -175,6 +175,12 @@
     ],
   },
 	{
+		path: '/th05',
+		name: 'TH05',
+		icon: 'TeamOutlined',
+		component: './TH05',
+	},
+	{
 		path: '/notification',
 		routes: [
 			{
