@@ -15,4 +15,9 @@
 	'menu.BT01.QuanLySanPham': 'Quản lý sản phẩm',
 	'menu.BT02': 'BT02',
 	'menu.BT02.QuanLyCongViec': 'Quản lý công việc',
+	'menu.TH06': 'TH06',
+	'menu.TH06.KhamPha': '1. Khám phá điểm đến',
+	'menu.TH06.LichTrinh': '2. Tạo lịch trình',
+	'menu.TH06.NganSach': '3. Quản lý ngân sách',
+	'menu.TH06.Admin': '4. Trang quản trị',
 };

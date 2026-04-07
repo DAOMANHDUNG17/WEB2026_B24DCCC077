@@ -181,6 +181,40 @@
 		component: './TH05',
 	},
 	{
+		name: 'TH06',
+		path: '/th06',
+		icon: 'SendOutlined',
+		routes: [
+			{
+				path: '/th06',
+				redirect: '/th06/kham-pha',
+			},
+			{
+				name: 'Khám phá',
+				path: '/th06/kham-pha',
+				component: './TH06',
+			},
+			{
+				name: 'Lịch Trình',
+				path: '/th06/lich-trinh',
+				component: './TH06',
+			},
+			{
+				name: 'Ngân Sách',
+				path: '/th06/ngan-sach',
+				component: './TH06',
+			},
+			{
+				name: 'Admin ',
+				path: '/th06/admin',
+				component: './TH06',
+			},
+		],
+	},
+
+		
+
+	{
 		path: '/notification',
 		routes: [
 			{
