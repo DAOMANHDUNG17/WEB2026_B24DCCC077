@@ -144,7 +144,7 @@
   },
   {
     path: '/th04',
-    name: 'TH04 - Quản lý Văn bằng',
+    name: 'TH04',
     icon: 'SafetyCertificateOutlined',
     routes: [
       {
@@ -211,6 +211,20 @@
 			},
 		],
 	},
+	// config/routes.ts
+{
+  path: '/ktgk',
+  name: 'KTGK',
+  icon: 'ReadOutlined',
+  // access: 'canAdmin', <-- Hãy thử comment dòng này lại hoặc xóa đi để kiểm tra
+  routes: [
+    {
+      path: '/ktgk/quan-ly-khoa-hoc',
+      name: 'Quản Lý Khóa Học',
+      component: './KTGK/QuanLyKhoaHoc',
+    },
+  ],
+},
 
 		
 
