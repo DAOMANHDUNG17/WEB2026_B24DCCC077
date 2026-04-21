@@ -20,4 +20,9 @@
 	'menu.TH06.LichTrinh': '2. Tạo lịch trình',
 	'menu.TH06.NganSach': '3. Quản lý ngân sách',
 	'menu.TH06.Admin': '4. Trang quản trị',
+	'menu.th07': 'TH07 - Blog',
+  'menu.th07.trangChuBlog': '1. Trang chủ Blog',
+  'menu.th07.quanLyBaiViet': '2. Quản lý bài viết',
+  'menu.th07.quanLyThe': '3. Quản lý thẻ (Tags)',
+  'menu.th07.gioiThieu': '4. Giới thiệu tác giả',
 };

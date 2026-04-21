@@ -1,93 +1,60 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Button, Card, Input, message, Popconfirm, Select, Space, Table, Tag, Tooltip } from 'antd';
-import { DeleteOutlined, EditOutlined, PlusOutlined, SearchOutlined } from '@ant-design/icons';
+// src/pages/KTGK/QuanLyKhoaHoc/index.tsx
+import React, { useState, useMemo, useEffect } from 'react';
+import { Card, Button, Input, Select, Table, Space, Popconfirm, Tag, Tooltip, message } from 'antd';
+import { PlusOutlined, EditOutlined, DeleteOutlined, SearchOutlined } from '@ant-design/icons';
+import { IKhoaHoc, DANH_SACH_GIANG_VIEN, TRANG_THAI_KHOA_HOC, DANH_SACH_TRANG_THAI } from './constant';
 import FormKhoaHoc from './components/FormKhoaHoc';
-import {
-  chuanHoaDanhSachKhoaHoc,
-  DANH_SACH_GIANG_VIEN,
-  DANH_SACH_TRANG_THAI,
-  TRANG_THAI_KHOA_HOC,
-} from './constant';
-import type { IKhoaHoc } from './constant';
-
-const KHOA_HOC_MAC_DINH: IKhoaHoc[] = [
-  {
-    id: 'KH_01',
-    tenKhoaHoc: 'Lập trình ReactJS Thực chiến',
-    giangVien: 'gv_01',
-    soLuongHocVien: 120,
-    trangThai: 'DANG_MO',
-    moTa: '<p>Khóa học nâng cao ReactJS</p>',
-  },
-  {
-    id: 'KH_02',
-    tenKhoaHoc: 'Cấu trúc dữ liệu và giải thuật',
-    giangVien: 'gv_02',
-    soLuongHocVien: 0,
-    trangThai: 'TAM_DUNG',
-    moTa: '<p>Cơ bản về CTDL</p>',
-  },
-];
 
 const QuanLyKhoaHoc: React.FC = () => {
   const [danhSachKhoaHoc, setDanhSachKhoaHoc] = useState<IKhoaHoc[]>(() => {
-    let duLieuKhoiTao = KHOA_HOC_MAC_DINH;
-
     try {
       const duLieuLuuTru = localStorage.getItem('KHOA_HOC_DATA');
       if (duLieuLuuTru) {
-        duLieuKhoiTao = JSON.parse(duLieuLuuTru) as IKhoaHoc[];
+        return JSON.parse(duLieuLuuTru);
       }
     } catch (error) {
       console.error('Lỗi khi lấy dữ liệu từ LocalStorage:', error);
     }
-
-    return chuanHoaDanhSachKhoaHoc(duLieuKhoiTao);
+    return [
+      {
+        id: 'KH_01',
+        tenKhoaHoc: 'Cơ sở dữ liệu',
+        giangVien: 'gv_01',
+        soLuongHocVien: 52,
+        trangThai: 'DANG_MO',
+        moTa: '<p>Khóa học nâng cao khả năng kiểm soát dữ liệu</p>',
+      },
+      {
+        id: 'KH_02',
+        tenKhoaHoc: 'Cấu trúc dữ liệu và giải thuật',
+        giangVien: 'gv_02',
+        soLuongHocVien: 0,
+        trangThai: 'TAM_DUNG',
+        moTa: '<p>Cơ bản về CTDL</p>',
+      },
+    ];
   });
+
 
   useEffect(() => {
     localStorage.setItem('KHOA_HOC_DATA', JSON.stringify(danhSachKhoaHoc));
   }, [danhSachKhoaHoc]);
 
-  const [tuKhoa, setTuKhoa] = useState('');
+
+  const [tuKhoa, setTuKhoa] = useState<string>('');
   const [locGiangVien, setLocGiangVien] = useState<string | undefined>(undefined);
   const [locTrangThai, setLocTrangThai] = useState<string | undefined>(undefined);
-  const [hienThiModal, setHienThiModal] = useState(false);
+  const [hienThiModal, setHienThiModal] = useState<boolean>(false);
   const [khoaHocDangSua, setKhoaHocDangSua] = useState<IKhoaHoc | null>(null);
 
   const duLieuHienThi = useMemo(() => {
-    return danhSachKhoaHoc.filter((khoaHoc) => {
-      const matchTuKhoa = khoaHoc.tenKhoaHoc.toLowerCase().includes(tuKhoa.toLowerCase());
-      const matchGiangVien = locGiangVien ? khoaHoc.giangVien === locGiangVien : true;
-      const matchTrangThai = locTrangThai ? khoaHoc.trangThai === locTrangThai : true;
-
+    return danhSachKhoaHoc.filter((kh) => {
+      const matchTuKhoa = kh.tenKhoaHoc.toLowerCase().includes(tuKhoa.toLowerCase());
+      const matchGiangVien = locGiangVien ? kh.giangVien === locGiangVien : true;
+      const matchTrangThai = locTrangThai ? kh.trangThai === locTrangThai : true;
       return matchTuKhoa && matchGiangVien && matchTrangThai;
     });
   }, [danhSachKhoaHoc, tuKhoa, locGiangVien, locTrangThai]);
-
-  const handleDongModal = () => {
-    setHienThiModal(false);
-    setKhoaHocDangSua(null);
-  };
-
-  const handleXoa = (id: string) => {
-    setDanhSachKhoaHoc((prev) => prev.filter((khoaHoc) => khoaHoc.id !== id));
-    message.success('Xóa khóa học thành công!');
-  };
-
-  const handleThanhCong = (duLieuMoi: IKhoaHoc) => {
-    if (khoaHocDangSua) {
-      setDanhSachKhoaHoc((prev) =>
-        prev.map((khoaHoc) => (khoaHoc.id === duLieuMoi.id ? duLieuMoi : khoaHoc)),
-      );
-      message.success('Cập nhật khóa học thành công!');
-    } else {
-      setDanhSachKhoaHoc((prev) => [duLieuMoi, ...prev]);
-      message.success('Thêm mới khóa học thành công!');
-    }
-
-    handleDongModal();
-  };
 
   const columns = [
     {
@@ -105,9 +72,9 @@ const QuanLyKhoaHoc: React.FC = () => {
       title: 'Giảng viên',
       dataIndex: 'giangVien',
       key: 'giangVien',
-      render: (value: string) => {
-        const giangVien = DANH_SACH_GIANG_VIEN.find((item) => item.value === value);
-        return giangVien ? giangVien.label : value;
+      render: (val: string) => {
+        const gv = DANH_SACH_GIANG_VIEN.find((g) => g.value === val);
+        return gv ? gv.label : val;
       },
     },
     {
@@ -115,16 +82,16 @@ const QuanLyKhoaHoc: React.FC = () => {
       dataIndex: 'soLuongHocVien',
       key: 'soLuongHocVien',
       width: 150,
-      sorter: (a: IKhoaHoc, b: IKhoaHoc) => a.soLuongHocVien - b.soLuongHocVien,
+      sorter: (a: IKhoaHoc, b: IKhoaHoc) => a.soLuongHocVien - b.soLuongHocVien, // Chức năng sắp xếp
     },
     {
       title: 'Trạng thái',
       dataIndex: 'trangThai',
       key: 'trangThai',
       width: 150,
-      render: (value: keyof typeof TRANG_THAI_KHOA_HOC) => {
-        const trangThai = TRANG_THAI_KHOA_HOC[value];
-        return <Tag color={trangThai?.color}>{trangThai?.text}</Tag>;
+      render: (val: keyof typeof TRANG_THAI_KHOA_HOC) => {
+        const tt = TRANG_THAI_KHOA_HOC[val];
+        return <Tag color={tt?.color}>{tt?.text}</Tag>;
       },
     },
     {
@@ -132,8 +99,8 @@ const QuanLyKhoaHoc: React.FC = () => {
       key: 'thaoTac',
       width: 150,
       align: 'center' as const,
-      render: (_: unknown, record: IKhoaHoc) => {
-        const choPhepXoa = record.soLuongHocVien === 0;
+      render: (_: any, record: IKhoaHoc) => {
+        const choPhepXoa = record.soLuongHocVien === 0; // Điều kiện xóa
 
         return (
           <Space>
@@ -148,7 +115,7 @@ const QuanLyKhoaHoc: React.FC = () => {
                 }}
               />
             </Tooltip>
-
+            
             <Tooltip title={choPhepXoa ? 'Xóa' : 'Chưa thể xóa do đang có học viên'}>
               <Popconfirm
                 title="Bạn có chắc chắn muốn xóa khóa học này không?"
@@ -166,6 +133,28 @@ const QuanLyKhoaHoc: React.FC = () => {
     },
   ];
 
+
+  const handleXoa = (id: string) => {
+    setDanhSachKhoaHoc((prev) => prev.filter((kh) => kh.id !== id));
+    message.success('Xóa khóa học thành công!');
+  };
+
+
+  const handleThanhCong = (duLieuMoi: IKhoaHoc) => {
+    if (khoaHocDangSua) {
+      // Cập nhật
+      setDanhSachKhoaHoc((prev) =>
+        prev.map((kh) => (kh.id === duLieuMoi.id ? duLieuMoi : kh))
+      );
+      message.success('Cập nhật khóa học thành công!');
+    } else {
+      // Thêm mới
+      setDanhSachKhoaHoc([duLieuMoi, ...danhSachKhoaHoc]);
+      message.success('Thêm mới khóa học thành công!');
+    }
+    setHienThiModal(false);
+  };
+
   return (
     <Card title="Quản lý khóa học Online">
       <Space style={{ marginBottom: 16, width: '100%', justifyContent: 'space-between' }}>
@@ -177,19 +166,17 @@ const QuanLyKhoaHoc: React.FC = () => {
             allowClear
             style={{ width: 300 }}
           />
-
           <Select
             placeholder="Lọc theo giảng viên"
             options={DANH_SACH_GIANG_VIEN}
-            onChange={(value) => setLocGiangVien(value)}
+            onChange={(val) => setLocGiangVien(val)}
             allowClear
             style={{ width: 200 }}
           />
-
           <Select
             placeholder="Lọc theo trạng thái"
-            options={DANH_SACH_TRANG_THAI.map((item) => ({ label: item.text, value: item.value }))}
-            onChange={(value) => setLocTrangThai(value)}
+            options={DANH_SACH_TRANG_THAI.map(tt => ({ label: tt.text, value: tt.value }))}
+            onChange={(val) => setLocTrangThai(val)}
             allowClear
             style={{ width: 150 }}
           />
@@ -217,7 +204,7 @@ const QuanLyKhoaHoc: React.FC = () => {
 
       <FormKhoaHoc
         visible={hienThiModal}
-        onCancel={handleDongModal}
+        onCancel={() => setHienThiModal(false)}
         onSuccess={handleThanhCong}
         khoaHocSua={khoaHocDangSua}
         danhSachHienTai={danhSachKhoaHoc}
