@@ -225,6 +225,38 @@
     },
   ],
 },
+{
+    path: '/th07',
+    name: 'th07',
+    icon: 'FormOutlined', // Icon phù hợp cho Blog
+    routes: [
+      {
+        path: '/th07',
+        redirect: '/th07/trang-chu-blog',
+      },
+      {
+        path: '/th07/trang-chu-blog',
+        name: 'trangChuBlog',
+        component: './TH07/TrangChuBlog',
+      },
+      {
+        path: '/th07/quan-ly-bai-viet',
+        name: 'quanLyBaiViet',
+        component: './TH07/QuanLyBaiViet',
+      },
+      {
+        path: '/th07/quan-ly-the',
+        name: 'quanLyThe',
+        component: './TH07/QuanLyThe',
+      },
+      {
+        path: '/th07/gioi-thieu',
+        name: 'gioiThieu',
+        component: './TH07/GioiThieu',
+      },
+    ],
+  },
+
 
 		
 
