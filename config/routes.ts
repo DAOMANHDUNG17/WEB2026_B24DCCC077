@@ -256,6 +256,42 @@
       },
     ],
   },
+	{
+		path: '/th08',
+		name: 'TH08',
+		icon: 'HeartOutlined',
+		routes: [
+			{
+				path: '/th08',
+				redirect: '/th08/dashboard',
+			},
+			{
+				path: '/th08/dashboard',
+				name: 'Dashboard',
+				component: './TH08/Dashboard',
+			},
+			{
+				path: '/th08/nhat-ky-tap-luyen',
+				name: 'NhatKyTapLuyen',
+				component: './TH08/NhatKyTapLuyen',
+			},
+			{
+				path: '/th08/chi-so-suc-khoe',
+				name: 'ChiSoSucKhoe',
+				component: './TH08/ChiSoSucKhoe',
+			},
+			{
+				path: '/th08/quan-ly-muc-tieu',
+				name: 'QuanLyMucTieu',
+				component: './TH08/QuanLyMucTieu',
+			},
+			{
+				path: '/th08/thu-vien-bai-tap',
+				name: 'ThuVienBaiTap',
+				component: './TH08/ThuVienBaiTap',
+			},
+		],
+	},
 
 
 		

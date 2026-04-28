@@ -13,4 +13,10 @@ export default {
   'menu.TH06.LichTrinh': '2. Build itinerary',
   'menu.TH06.NganSach': '3. Budget management',
   'menu.TH06.Admin': '4. Admin',
+  'menu.TH08': 'TH08',
+  'menu.TH08.Dashboard': '1. Dashboard',
+  'menu.TH08.NhatKyTapLuyen': '2. Workout Log',
+  'menu.TH08.ChiSoSucKhoe': '3. Health Metrics',
+  'menu.TH08.QuanLyMucTieu': '4. Goal Management',
+  'menu.TH08.ThuVienBaiTap': '5. Exercise Library',
 };
