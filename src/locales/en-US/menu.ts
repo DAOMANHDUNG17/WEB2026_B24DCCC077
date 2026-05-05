@@ -19,4 +19,8 @@ export default {
   'menu.TH08.ChiSoSucKhoe': '3. Health Metrics',
   'menu.TH08.QuanLyMucTieu': '4. Goal Management',
   'menu.TH08.ThuVienBaiTap': '5. Exercise Library',
+  'menu.TH09': 'TH09',
+  'menu.TH09.Dashboard': '1. Dashboard',
+  'menu.TH09.KanbanBoard': '2. Kanban Board',
+  'menu.TH09.DanhSachTask': '3. Task List',
 };

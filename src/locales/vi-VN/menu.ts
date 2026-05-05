@@ -31,4 +31,8 @@
 	'menu.TH08.ChiSoSucKhoe': '3. Nhật ký chỉ số sức khỏe',
 	'menu.TH08.QuanLyMucTieu': '4. Quản lý mục tiêu',
 	'menu.TH08.ThuVienBaiTap': '5. Thư viện bài tập',
+	'menu.TH09': 'TH09',
+	'menu.TH09.Dashboard': '1. Dashboard',
+	'menu.TH09.KanbanBoard': '2. Kanban Board',
+	'menu.TH09.DanhSachTask': '3. Danh sách task',
 };

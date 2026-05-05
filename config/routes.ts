@@ -292,6 +292,32 @@
 			},
 		],
 	},
+	{
+		path: '/th09',
+		name: 'TH09',
+		icon: 'ProjectOutlined',
+		routes: [
+			{
+				path: '/th09',
+				redirect: '/th09/dashboard',
+			},
+			{
+				path: '/th09/dashboard',
+				name: 'Dashboard',
+				component: './TH09/Dashboard',
+			},
+			{
+				path: '/th09/kanban-board',
+				name: 'KanbanBoard',
+				component: './TH09/KanbanBoard',
+			},
+			{
+				path: '/th09/danh-sach-task',
+				name: 'DanhSachTask',
+				component: './TH09/DanhSachTask',
+			},
+		],
+	},
 
 
 		
