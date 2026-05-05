@@ -256,6 +256,68 @@
       },
     ],
   },
+	{
+		path: '/th08',
+		name: 'TH08',
+		icon: 'HeartOutlined',
+		routes: [
+			{
+				path: '/th08',
+				redirect: '/th08/dashboard',
+			},
+			{
+				path: '/th08/dashboard',
+				name: 'Dashboard',
+				component: './TH08/Dashboard',
+			},
+			{
+				path: '/th08/nhat-ky-tap-luyen',
+				name: 'NhatKyTapLuyen',
+				component: './TH08/NhatKyTapLuyen',
+			},
+			{
+				path: '/th08/chi-so-suc-khoe',
+				name: 'ChiSoSucKhoe',
+				component: './TH08/ChiSoSucKhoe',
+			},
+			{
+				path: '/th08/quan-ly-muc-tieu',
+				name: 'QuanLyMucTieu',
+				component: './TH08/QuanLyMucTieu',
+			},
+			{
+				path: '/th08/thu-vien-bai-tap',
+				name: 'ThuVienBaiTap',
+				component: './TH08/ThuVienBaiTap',
+			},
+		],
+	},
+	{
+		path: '/th09',
+		name: 'TH09',
+		icon: 'ProjectOutlined',
+		routes: [
+			{
+				path: '/th09',
+				redirect: '/th09/dashboard',
+			},
+			{
+				path: '/th09/dashboard',
+				name: 'Dashboard',
+				component: './TH09/Dashboard',
+			},
+			{
+				path: '/th09/kanban-board',
+				name: 'KanbanBoard',
+				component: './TH09/KanbanBoard',
+			},
+			{
+				path: '/th09/danh-sach-task',
+				name: 'DanhSachTask',
+				component: './TH09/DanhSachTask',
+			},
+		],
+	},
 
 
 		
